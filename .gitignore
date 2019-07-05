@@ -1,0 +1,5 @@
+*.sw[a-z]
+*.un~
+vendor/
+package-lock.json
+composer.lock

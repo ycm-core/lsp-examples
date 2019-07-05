@@ -1,0 +1,6 @@
+{
+  "description": "ycmd yaml-language-server runtime area",
+  "dependencies": {
+    "yaml-language-server": "0.2.0"
+  }
+}
