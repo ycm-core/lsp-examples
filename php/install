@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-composer install
-composer run-script \
-         --working-dir=vendor/felixfbecker/language-server \
-         parse-stubs
