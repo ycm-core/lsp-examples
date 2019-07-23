@@ -43,6 +43,10 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'd' ], 
   \     'cmdline': [ expand( '$HOME/Development/lsp/d/serve-d' ) ],
   \   },
+  \   { 'name': 'vue',
+  \     'filetypes': [ 'vue' ], 
+  \     'cmdline': [ expand( '$HOME/Development/lsp/vue/node_modules/.bin/vls' ) ]
+  \   },
   \ ]
 ```
 
