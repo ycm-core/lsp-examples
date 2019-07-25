@@ -6,6 +6,22 @@ with YouCompleteMe (strictly ycmd).
 This repo comes with no warranty, and these engines are not officially supported
 by YCM, though they should work for the most part.
 
+# Languages Tested
+
+Working:
+
+* D
+* Dockerfile
+* Kotlin
+* Ruby
+* Vue
+
+Broken or partially working:
+
+* JSON
+* PHP
+* YAML
+
 # Quick start
 
 Assuming you installed this repo in `$HOME/Development/lsp`:
