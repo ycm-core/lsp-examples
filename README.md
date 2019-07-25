@@ -47,6 +47,10 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'vue' ], 
   \     'cmdline': [ expand( '$HOME/Development/lsp/vue/node_modules/.bin/vls' ) ]
   \   },
+  \   { 'name': 'docker',
+  \     'filetypes': [ 'dockerfile' ], 
+  \     'cmdline': [ expand( '$HOME/Development/lsp/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
+  \   },
   \ ]
 ```
 

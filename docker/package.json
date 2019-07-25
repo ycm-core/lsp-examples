@@ -1,0 +1,6 @@
+{
+  "description": "ycmd docker-language-server runtime area",
+  "dependencies": {
+    "dockerfile-language-server-nodejs": "*"
+  }
+}
