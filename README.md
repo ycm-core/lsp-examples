@@ -15,6 +15,7 @@ Working:
 * Kotlin
 * Ruby
 * Vue
+* Vim (vimscript)
 
 Broken or partially working:
 
@@ -66,6 +67,10 @@ let g:ycm_language_server = [
   \   { 'name': 'docker',
   \     'filetypes': [ 'dockerfile' ], 
   \     'cmdline': [ expand( '$HOME/Development/lsp/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
+  \   },
+  \   { 'name': 'vim',
+  \     'filetypes': [ 'vim' ],
+  \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
   \   },
   \ ]
 ```
