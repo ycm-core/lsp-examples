@@ -117,6 +117,10 @@ just like `serve-d`, `kotlin-language-server` has its own [configuration][kt-con
 The server executable is actually a shell script and the build process produces
 `server` for Linux and `server.bat` for Windows.
 
+**NOTICE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of kotlin
+project folder. So please make sure you put your `.ycm_extra_conf.py` at right place
+(root of current project) to make it work properly.
+
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
