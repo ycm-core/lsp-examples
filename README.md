@@ -119,7 +119,8 @@ The server executable is actually a shell script and the build process produces
 
 **NOTICE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of kotlin
 project folder. So please make sure you put your `.ycm_extra_conf.py` at right place
-(root of current project) to make it work properly.
+(root of current project) to make it work properly. If you encounter any problem about
+it, go [#5][kt-issue] for detail solution.
 
 # Known Issues
 
@@ -130,8 +131,6 @@ project folder. So please make sure you put your `.ycm_extra_conf.py` at right p
   always returns snippets, even though ycmd claims not to support them.
   Validation works though.
 - `php` completer generally never works. It just seems broken.
-- `kotlin` completer currently requires merging of [a pull request][kt-pr] into
-  master.
 
 
 [yaml-bug]: https://github.com/redhat-developer/yaml-language-server/issues/161
@@ -139,4 +138,4 @@ project folder. So please make sure you put your `.ycm_extra_conf.py` at right p
 [rbenv]: https://github.com/rbenv/rbenv
 [d-conf]: https://github.com/Pure-D/serve-d/blob/master/source/served/types.d#L64
 [kt-conf]: https://github.com/fwcd/KotlinLanguageServer/blob/master/server/src/main/kotlin/org/javacs/kt/KotlinWorkspaceService.kt#L81
-[kt-pr]: https://github.com/fwcd/KotlinLanguageServer/pull/120
+[kt-issue]: https://github.com/ycm-core/lsp-examples/issues/5
