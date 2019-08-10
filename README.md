@@ -77,6 +77,9 @@ let g:ycm_language_server = [
 
 * Adjust the directory as appropriate
 
+* **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
+So please make sure you put your `.ycm_extra_conf.py` at right place (root of current project)
+
 # Ruby
 
 You need to be running a version of ruby that the parser understands:
@@ -117,6 +120,9 @@ just like `serve-d`, `kotlin-language-server` has its own [configuration][kt-con
 The server executable is actually a shell script and the build process produces
 `server` for Linux and `server.bat` for Windows.
 
+Make sure to put a `.ycm_extra_conf.py` file in the root of your project, otherwise
+[the language server may fail][kt-issue].
+
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
@@ -126,8 +132,6 @@ The server executable is actually a shell script and the build process produces
   always returns snippets, even though ycmd claims not to support them.
   Validation works though.
 - `php` completer generally never works. It just seems broken.
-- `kotlin` completer currently requires merging of [a pull request][kt-pr] into
-  master.
 
 
 [yaml-bug]: https://github.com/redhat-developer/yaml-language-server/issues/161
@@ -135,4 +139,4 @@ The server executable is actually a shell script and the build process produces
 [rbenv]: https://github.com/rbenv/rbenv
 [d-conf]: https://github.com/Pure-D/serve-d/blob/master/source/served/types.d#L64
 [kt-conf]: https://github.com/fwcd/KotlinLanguageServer/blob/master/server/src/main/kotlin/org/javacs/kt/KotlinWorkspaceService.kt#L81
-[kt-pr]: https://github.com/fwcd/KotlinLanguageServer/pull/120
+[kt-issue]: https://github.com/ycm-core/lsp-examples/issues/5
