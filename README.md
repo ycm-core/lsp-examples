@@ -77,7 +77,7 @@ let g:ycm_language_server = [
 
 * Adjust the directory as appropriate
 
-* **NOTICE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
+* **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
 So please make sure you put your `.ycm_extra_conf.py` at right place (root of current project)
 
 # Ruby
@@ -120,10 +120,8 @@ just like `serve-d`, `kotlin-language-server` has its own [configuration][kt-con
 The server executable is actually a shell script and the build process produces
 `server` for Linux and `server.bat` for Windows.
 
-**NOTICE**: As mentioned before, YCM will regard the path of `.ycm_extra_conf.py` as
-root path of kotlin project folder. Miss place the file may cause server crash
-silently and no semantic completion at all, for detailed solution and explaination,
-go [#5][kt-issue].
+Make sure to put a `.ycm_extra_conf.py` file in the root of your project, otherwise
+[the language server may fail](#5).
 
 # Known Issues
 
@@ -141,4 +139,3 @@ go [#5][kt-issue].
 [rbenv]: https://github.com/rbenv/rbenv
 [d-conf]: https://github.com/Pure-D/serve-d/blob/master/source/served/types.d#L64
 [kt-conf]: https://github.com/fwcd/KotlinLanguageServer/blob/master/server/src/main/kotlin/org/javacs/kt/KotlinWorkspaceService.kt#L81
-[kt-issue]: https://github.com/ycm-core/lsp-examples/issues/5
