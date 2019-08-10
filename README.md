@@ -121,7 +121,7 @@ The server executable is actually a shell script and the build process produces
 `server` for Linux and `server.bat` for Windows.
 
 Make sure to put a `.ycm_extra_conf.py` file in the root of your project, otherwise
-[the language server may fail](#5).
+[the language server may fail][kt-issue].
 
 # Known Issues
 
@@ -139,3 +139,4 @@ Make sure to put a `.ycm_extra_conf.py` file in the root of your project, otherw
 [rbenv]: https://github.com/rbenv/rbenv
 [d-conf]: https://github.com/Pure-D/serve-d/blob/master/source/served/types.d#L64
 [kt-conf]: https://github.com/fwcd/KotlinLanguageServer/blob/master/server/src/main/kotlin/org/javacs/kt/KotlinWorkspaceService.kt#L81
+[kt-issue]: https://github.com/ycm-core/lsp-examples/issues/5
