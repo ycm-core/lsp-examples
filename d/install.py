@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+import sys
+
+if sys.version_info < ( 3, 6, 4 ):
+  sys.exit( "You need to run this with python 3" )
+
 import os, urllib.request, platform, zipfile, tarfile
 
 def OnWindows():

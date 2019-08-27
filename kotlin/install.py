@@ -8,12 +8,20 @@ def OnWindows():
 
 def Main():
   url = 'https://github.com/fwcd/KotlinLanguageServer'
-  subprocess.check_call( [ 'git', 'clone', '--depth', '1', url ] )
+  if not os.path.isdir( 'KotlinLanguageServer' ):
+    subprocess.check_call( [ 'git', 'clone', '--depth', '1', url ] )
+
   os.chdir( 'KotlinLanguageServer' )
+  subprocess.check_call( [ 'git', 'pull' ] )
+
   if OnWindows():
-    subprocess.check_call( [ './gradlew.bat', 'server:installDist' ] )
+    subprocess.check_call( [ './gradlew.bat',
+                             '--no-daemon',
+                             'server:installDist' ] )
   else:
-    subprocess.check_call( [ './gradlew', 'server:installDist' ] )
+    subprocess.check_call( [ './gradlew',
+                             '--no-daemon',
+                             'server:installDist' ] )
 
 
 if __name__ == '__main__':
