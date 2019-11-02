@@ -23,6 +23,10 @@ Broken or partially working:
 * PHP
 * YAML
 
+See also:
+
+* [C-family with ccls](https://github.com/MaskRay/ccls/wiki/YouCompleteMe)
+
 # Quick start
 
 Assuming you installed this repo in `$HOME/Development/lsp`:
