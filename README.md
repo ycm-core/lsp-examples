@@ -76,6 +76,11 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'vim' ],
   \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
   \   },
+  \   { 'name': 'julia',
+  \     'filetypes': [ 'julia' ],
+  \     'project_root_files': [ 'Project.toml' ],
+  \     'cmdline': <See note below>
+  \   }
   \ ]
 ```
 
@@ -126,6 +131,33 @@ The server executable is actually a shell script and the build process produces
 
 Make sure to put a `.ycm_extra_conf.py` file in the root of your project, otherwise
 [the language server may fail][kt-issue].
+
+# Julia
+
+The command line for starting the server is:
+
+```viml
+let g:julia_cmdline = ['julia', '--startup-file=no', '--history-file=no', '-e', '
+\       using LanguageServer;
+\       using Pkg;
+\       import StaticLint;
+\       import SymbolServer;
+\       env_path = dirname(Pkg.Types.Context().env.project_file);
+\       debug = false;
+\
+\       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict());
+\       server.runlinter = true;
+\       run(server);
+\   ']
+```
+
+You can replace the first command line argument (`'julia'`) with an absolute
+path, if `julia` isn't in your `$PATH`.
+With the above list in your vimrc, you can set `'cmdline'` in
+`g:ycm_language_server` to just `g:julia_cmdline`.
+
+Julia server *does* support configuration via the extra conf, but it doesn't
+seem to be documented anywhere.
 
 # Known Issues
 
