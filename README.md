@@ -76,6 +76,24 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'vim' ],
   \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
   \   },
+  \   { 'name': 'scala',
+  \     'filetypes': [ 'scala' ],
+  \     'cmdline': [ 'metals-vim' ],
+  \     'project_root_files': [ 'build.sbt' ]
+  \   },
+  \   { 'name': 'purescript',
+  \     'filetypes': [ 'purescript' ],
+  \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
+  \   },
+  \   { 'name': 'fortran',
+  \     'filetypes': [ 'fortran' ],
+  \     'cmdline': [ 'fortls' ],
+  \   },
+  \   { 'name': 'haskell',
+  \     'filetypes': [ 'haskell', 'hs', 'lhs' ],
+  \     'cmdline': [ 'hie-wrapper' ],
+  \     'project_root_files': [ '.stack.yaml', 'cabal.config', 'package.yaml' ]
+  \   },
   \   { 'name': 'julia',
   \     'filetypes': [ 'julia' ],
   \     'project_root_files': [ 'Project.toml' ],
@@ -88,6 +106,44 @@ let g:ycm_language_server = [
 
 * **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
 So please make sure you put your `.ycm_extra_conf.py` at right place (root of current project)
+
+# Purescript
+
+Ycmd currently doesn't support `showMessageRequest`, so users need to manually build their projects
+on the command line before starting the server. To do this execute `pulp build` in the project root.
+
+# Scala
+
+Ycmd currently doesn't support `showMessageRequest`, so users need to "import build" manually.
+Unlike purescript, for scala, this can be done in the editor by executing
+`:YcmCompleter ExecuteCommand build-import`. For this operation to succeed `sbt` and `bloop`
+need to be in the `$PATH`. `metals` also requires java 8.
+
+For completions to work make sure the version of `metals` has [this bug fix][metals-pr].
+
+# Haskell
+
+Currently haskell-ide-engine always completes snippets, which trips up ycmd.
+The [pull request][hie-pr] that fixed this bug has already been merged, but isn't
+available in version 0.13.0.0. Until the next version of HIE compile its git master.
+
+The HIE install instructions can be found [here][hie-install].
+
+HIE also requires a `.ycm_extra_config.py` with the following content:
+
+```python
+def Settings(**kwargs):
+  return { 'ls': { "languageServerHaskell": {} } }
+```
+
+# Fortran
+
+The server causes two kinds of spurious errors:
+
+- `fortls` doesn't support `didChangeConfiguration`.
+- Ycmd doesn't handle the case where the result of `textDocument/completion` is `null`.
+
+Both of those errors can be ignored, as they don't interfere with normal work of ycmd/fortls.
 
 # Ruby
 
@@ -176,3 +232,6 @@ seem to be documented anywhere.
 [d-conf]: https://github.com/Pure-D/serve-d/blob/master/source/served/types.d#L64
 [kt-conf]: https://github.com/fwcd/KotlinLanguageServer/blob/master/server/src/main/kotlin/org/javacs/kt/KotlinWorkspaceService.kt#L81
 [kt-issue]: https://github.com/ycm-core/lsp-examples/issues/5
+[hie-pr]: https://github.com/haskell/haskell-ide-engine/pull/1424
+[hie-install]: https://github.com/haskell/haskell-ide-engine#installation
+[metals-pr]: https://github.com/scalameta/metals/issues/1057
