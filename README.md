@@ -138,12 +138,11 @@ def Settings(**kwargs):
 
 # Fortran
 
-The server causes two kinds of spurious errors:
+The server causes a spurious error:
 
 - `fortls` doesn't support `didChangeConfiguration`.
-- Ycmd doesn't handle the case where the result of `textDocument/completion` is `null`.
 
-Both of those errors can be ignored, as they don't interfere with normal work of ycmd/fortls.
+This error can be ignored, as they don't interfere with normal work of ycmd/fortls.
 
 # Ruby
 
