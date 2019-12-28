@@ -45,7 +45,7 @@ def FindExecutableOrDie( executable, message ):
 
 
 def Main():
-  npm = FindExecutableOrDie( 'pip', 'pip is required to install fortls.' )
+  pip = FindExecutableOrDie( 'pip', 'pip is required to install fortls.' )
   subprocess.check_call( [ pip, 'install', 'fortran-language-server' ] )
 
 
