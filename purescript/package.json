@@ -1,7 +1,6 @@
 {
   "description": "ycmd purescript-language-server runtime area",
   "dependencies": {
-    "purescript-json-languageserver": "0.12.7"
+    "purescript-language-server": "0.12.7"
   }
 }
-
