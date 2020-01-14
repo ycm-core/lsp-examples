@@ -1,6 +1,6 @@
 {
   "description": "ycmd yaml-language-server runtime area",
   "dependencies": {
-    "vscode-json-languageserver": "1.0.1"
+    "vscode-json-languageserver": "*"
   }
 }
