@@ -22,6 +22,7 @@ Broken or partially working:
 * JSON
 * PHP
 * YAML
+* Lua
 
 See also:
 
@@ -98,7 +99,12 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'julia' ],
   \     'project_root_files': [ 'Project.toml' ],
   \     'cmdline': <See note below>
-  \   }
+  \   },
+  \   { 'name': 'lua',
+  \     'filetypes': [ 'lua' ],
+  \     'cmdline': [ expand( '$HOME/Development/lsp/lua/lua-language-server/root/extension/server/bin/macOS/lua-language-server'),
+  \                  expand( '$HOME/Development/lsp/lua/lua-language-server/root/extension/server/main.lua' ) ]
+  \   },
   \ ]
 ```
 
@@ -214,6 +220,20 @@ With the above list in your vimrc, you can set `'cmdline'` in
 Julia server *does* support configuration via the extra conf, but it doesn't
 seem to be documented anywhere.
 
+# Lua
+
+Uses [lua-language-server][].
+
+Quick testing suggests that:
+
+- It returns snippets even though YCM explicitly opted out, meaning completions
+  don't work unless you use [Ben's Fork][puremourning-fork]
+- It violates a number of other items of the protocol other than that such as
+  missing mandatory fields.
+- Signature help doesn't seem to work.
+
+However, it looks like diagnostics and GoTo work.
+
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
@@ -223,7 +243,11 @@ seem to be documented anywhere.
   always returns snippets, even though ycmd claims not to support them.
   Validation works though.
 - `php` completer generally never works. It just seems broken.
+- `lua` - yet another completer that returns snippets even if client doesn't
+  support them.
 
+There is highly experimental (essentially unsupported) support for snippet
+completions in [Ben's Fork][puremourning-fork] of YCM.
 
 [yaml-bug]: https://github.com/redhat-developer/yaml-language-server/issues/161
 [json-bug]: https://github.com/vscode-langservers/vscode-json-languageserver-bin/issues/2
@@ -234,3 +258,5 @@ seem to be documented anywhere.
 [hie-pr]: https://github.com/haskell/haskell-ide-engine/pull/1424
 [hie-install]: https://github.com/haskell/haskell-ide-engine#installation
 [metals-pr]: https://github.com/scalameta/metals/issues/1057
+[lua-language-server]: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
+[puremourning-fork]: https://github.com/puremourning/YouCompleteMe
