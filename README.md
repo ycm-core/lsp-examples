@@ -234,6 +234,30 @@ Quick testing suggests that:
 
 However, it looks like diagnostics and GoTo work.
 
+The command line requeired depends on your OS:
+
+* Windows: `/path/to/lua-language-server/bin/Windows/lua-language-server.exe`
+* Linux: `/path/to/lua-language-server/bin/Linux/lua-language-server`
+* macOS: `/path/to/lua-language-server/bin/macOS/lua-language-server`
+
+There is one command line argument. It needs to be the absolute path to
+`/path/to/lua-language-server/main.lua`.
+
+The `install.py` for Lua downloads the pre-built visual studio code extension,
+but you can build `lua-language-server` yourself easily if you have `ninja`
+installed:
+
+```
+git clone https://github.com/sumneko/lua-language-server
+cd lua-language-server
+cd 3rd/luamake
+ninja ninja/<your os>.ninja
+cd ../../
+./3rd/luamake/luamake rebuild
+```
+
+This will put the binaries in `bin/<your os>`.
+
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
