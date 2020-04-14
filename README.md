@@ -11,6 +11,7 @@ by YCM, though they should work for the most part.
 Working:
 
 * D
+* Dart
 * Dockerfile
 * Kotlin
 * Ruby
@@ -37,6 +38,11 @@ Assuming you installed this repo in `$HOME/Development/lsp`:
 
 ```viml
 let g:ycm_language_server = [
+  \   {
+  \     'name': 'dart',
+  \     'cmdline': [ 'dart', expand( '$HOME/Development/lsp/dart/analysis_server.dart.snapshot' ), '--lsp' ],
+  \     'filetypes': [ 'dart' ],
+  \   },
   \   {
   \     'name': 'yaml',
   \     'cmdline': [ 'node', expand( '$HOME/Development/lsp/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
