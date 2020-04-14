@@ -1,0 +1,6 @@
+{
+  "description": "ycmd yaml-language-server runtime area",
+  "dependencies": {
+    "bash-language-server": "*"
+  }
+}

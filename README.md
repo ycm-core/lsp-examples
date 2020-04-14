@@ -10,6 +10,7 @@ by YCM, though they should work for the most part.
 
 Working:
 
+* Bash
 * D
 * Dart
 * Dockerfile
@@ -38,6 +39,11 @@ Assuming you installed this repo in `$HOME/Development/lsp`:
 
 ```viml
 let g:ycm_language_server = [
+  \   {
+  \     'name': 'bash',
+  \     'cmdline': [ 'node', expand( '$HOME/Development/lsp/bash/node_modules/.bin/bash-language-server' ), 'start' ],
+  \     'filetypes': [ 'sh', 'bash' ],
+  \   },
   \   {
   \     'name': 'dart',
   \     'cmdline': [ 'dart', expand( '$HOME/Development/lsp/dart/analysis_server.dart.snapshot' ), '--lsp' ],
