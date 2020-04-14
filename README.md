@@ -283,7 +283,18 @@ This will put the binaries in `bin/<your os>`.
   support them.
 
 There is highly experimental (essentially unsupported) support for snippet
-completions in [Ben's Fork][puremourning-fork] of YCM.
+completions in [Ben's Fork][puremourning-fork] of YCM. For example, the 
+following makes json work with that fork:
+
+```viml
+    \   {
+    \     'name': 'json',
+    \     'cmdline': [ 'node', s:lsp_dir . '/json/node_modules/.bin/vscode-json-languageserver', '--stdio' ],
+    \     'filetypes': [ 'json' ],
+    \     'capabilities': #{ textDocument: #{ completion: #{ completionItem: #{ snippetSupport: v:true } } } },
+    \   },
+```
+
 
 [yaml-bug]: https://github.com/redhat-developer/yaml-language-server/issues/161
 [json-bug]: https://github.com/vscode-langservers/vscode-json-languageserver-bin/issues/2
