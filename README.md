@@ -310,9 +310,6 @@ Building `rust-analyzer` requires `rustup` and the `rust` source code (see the
 
 Then you can enable rust with `./install.py --enable-rust`.
 
-In my testing, this does not work well (at least nowhere near as well as `rls`)
-but YMMV.
-
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
