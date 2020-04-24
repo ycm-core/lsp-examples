@@ -25,6 +25,7 @@ Broken or partially working:
 * PHP
 * YAML
 * Lua
+* Rust (with rust-analyzer)
 
 See also:
 
@@ -32,62 +33,63 @@ See also:
 
 # Quick start
 
-Assuming you installed this repo in `$HOME/Development/lsp`:
+Assuming you installed this repo in `/path/to/this/directory`:
 
 * For each of the servers you want, run the `install` script in that directory.
 * Add the following to your `vimrc` (remove any that you didn't install):
 
 ```viml
+let s:lsp = '/path/to/this/directory'
 let g:ycm_language_server = [
   \   {
   \     'name': 'bash',
-  \     'cmdline': [ 'node', expand( '$HOME/Development/lsp/bash/node_modules/.bin/bash-language-server' ), 'start' ],
+  \     'cmdline': [ 'node', expand( s:lsp . '/bash/node_modules/.bin/bash-language-server' ), 'start' ],
   \     'filetypes': [ 'sh', 'bash' ],
   \   },
   \   {
   \     'name': 'dart',
-  \     'cmdline': [ 'dart', expand( '$HOME/Development/lsp/dart/analysis_server.dart.snapshot' ), '--lsp' ],
+  \     'cmdline': [ 'dart', expand( s:lsp . '/dart/analysis_server.dart.snapshot' ), '--lsp' ],
   \     'filetypes': [ 'dart' ],
   \   },
   \   {
   \     'name': 'yaml',
-  \     'cmdline': [ 'node', expand( '$HOME/Development/lsp/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
+  \     'cmdline': [ 'node', expand( s:lsp . '/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
   \     'filetypes': [ 'yaml' ],
   \   },
   \   {
   \     'name': 'php',
-  \     'cmdline': [ 'php', expand( '$HOME/Development/lsp/php/vendor/bin/php-language-server.php' ) ],
+  \     'cmdline': [ 'php', expand( s:lsp . '/php/vendor/bin/php-language-server.php' ) ],
   \     'filetypes': [ 'php' ],
   \   },
   \   {
   \     'name': 'json',
-  \     'cmdline': [ 'node', expand( '$HOME/Development/lsp/json/node_modules/.bin/vscode-json-languageserver' ), '--stdio' ],
+  \     'cmdline': [ 'node', expand( s:lsp . '/json/node_modules/.bin/vscode-json-languageserver' ), '--stdio' ],
   \     'filetypes': [ 'json' ],
   \   },
   \   {
   \     'name': 'ruby',
-  \     'cmdline': [ expand( '$HOME/Development/lsp/ruby/bin/solargraph' ), 'stdio' ],
+  \     'cmdline': [ expand( s:lsp . '/ruby/bin/solargraph' ), 'stdio' ],
   \     'filetypes': [ 'ruby' ],
   \   },
   \   { 'name': 'kotlin',
   \     'filetypes': [ 'kotlin' ], 
-  \     'cmdline': [ expand( '$HOME/Development/lsp/kotlin/server/build/install/server/bin/server' ) ],
+  \     'cmdline': [ expand( s:lsp . '/kotlin/server/build/install/server/bin/server' ) ],
   \   },
   \   { 'name': 'd',
   \     'filetypes': [ 'd' ], 
-  \     'cmdline': [ expand( '$HOME/Development/lsp/d/serve-d' ) ],
+  \     'cmdline': [ expand( s:lsp . '/d/serve-d' ) ],
   \   },
   \   { 'name': 'vue',
   \     'filetypes': [ 'vue' ], 
-  \     'cmdline': [ expand( '$HOME/Development/lsp/vue/node_modules/.bin/vls' ) ]
+  \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ) ]
   \   },
   \   { 'name': 'docker',
   \     'filetypes': [ 'dockerfile' ], 
-  \     'cmdline': [ expand( '$HOME/Development/lsp/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
+  \     'cmdline': [ expand( s:lsp . '/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
   \   },
   \   { 'name': 'vim',
   \     'filetypes': [ 'vim' ],
-  \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
+  \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
   \   },
   \   { 'name': 'scala',
   \     'filetypes': [ 'scala' ],
@@ -96,7 +98,7 @@ let g:ycm_language_server = [
   \   },
   \   { 'name': 'purescript',
   \     'filetypes': [ 'purescript' ],
-  \     'cmdline': [ expand( '$HOME/Development/lsp/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
+  \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
   \   },
   \   { 'name': 'fortran',
   \     'filetypes': [ 'fortran' ],
@@ -114,8 +116,13 @@ let g:ycm_language_server = [
   \   },
   \   { 'name': 'lua',
   \     'filetypes': [ 'lua' ],
-  \     'cmdline': [ expand( '$HOME/Development/lsp/lua/lua-language-server/root/extension/server/bin/macOS/lua-language-server'),
-  \                  expand( '$HOME/Development/lsp/lua/lua-language-server/root/extension/server/main.lua' ) ]
+  \     'cmdline': [ expand( s:lsp . '/lua/lua-language-server/root/extension/server/bin/macOS/lua-language-server'),
+  \                  expand( s:lsp . '/lua/lua-language-server/root/extension/server/main.lua' ) ]
+  \   },
+  \   { 'name': 'rust',
+  \     'filetypes': [ 'rust' ],
+  \     'cmdline': [ expand( s:lsp .  '/rust/rust-analyzer/target/release/rust-analyzer' ) ],
+  \     'project_root_files': [ 'Cargo.toml' ],
   \   },
   \ ]
 ```
@@ -124,6 +131,22 @@ let g:ycm_language_server = [
 
 * **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
 So please make sure you put your `.ycm_extra_conf.py` at right place (root of current project)
+
+# Configuration
+
+The `g:ycm_language_server` option is used to tell YCM (strictly, ycmd) to use
+its 'generic' language server completer. It's a list of dictionaries with the
+following keys:
+
+* 'name' (string): Name of the language server
+* 'filetypes' (list): List of Vim filetypes to use this language server for
+* 'cmdline' (list): List of words forming a command line to execute. Note:
+  *must* be a list, even if it has only one element (such as `[ 'executable' ]`.
+* 'project_root_files' (list, optional): List of filename to search for when
+  trying to determine the 'root' of the project. THis is useful for languages or
+  language servers which don't automatically detect the 'workspace' root.
+
+For full documentation, please see the YouCompleteMe docs.
 
 # Purescript
 
@@ -269,6 +292,26 @@ cd ../../
 ```
 
 This will put the binaries in `bin/<your os>`.
+
+# Rust (rust-analyzer)
+
+YCM uses `rls` by default. In order to use `rust-analyzer` you must _not_ have
+built YCM with `--rust-completer`. If you previously did, then you need to
+remove the directory
+`</path/to/>/YouCompleteMe/third_party/ycmd/third_party/rls`.
+
+Building `rust-analyzer` requires `rustup` and the `rust` source code (see the
+`rust-analyzer` docs for details, but in short:
+
+* Install `rustup`
+* `rustup update stable`
+* `rustup default stable`
+* `rustup component add rust-src`
+
+Then you can enable rust with `./install.py --enable-rust`.
+
+In my testing, this does not work well (at least nowhere near as well as `rls`)
+but YMMV.
 
 # Known Issues
 
