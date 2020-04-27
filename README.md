@@ -18,6 +18,7 @@ Working:
 * Ruby
 * Vue
 * Vim (vimscript)
+* Rust (with rust-analyzer)
 
 Broken or partially working:
 
@@ -25,7 +26,6 @@ Broken or partially working:
 * PHP
 * YAML
 * Lua
-* Rust (with rust-analyzer)
 
 See also:
 
