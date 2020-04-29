@@ -1,0 +1,19 @@
+{
+  "name": "ycm-test-languageserver",
+  "version": "1.0.0",
+  "description": "Language server useful for testing the YCM generic LSP completer",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "./node_modules/.bin/tsc -w",
+    "build": "./node_modules/.bin/tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "vscode-languageserver": "^6.1.1",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "typescript": "^3.8.2"
+  }
+}
