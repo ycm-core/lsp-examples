@@ -312,13 +312,11 @@ Building `rust-analyzer` requires `rustup` and the `rust` source code (see the
 Then you can enable rust with `./install.py --enable-rust`.
 
 NOTE: To make rust-analyzer work as intended, you need to switch to the
-following YCM and ycmd forks:
+following ycmd fork:
 
-- YCM: https://github.com/bstaletic/YouCompleteMe/tree/didSave
 - ycmd: https://github.com/bstaletic/ycmd/tree/rust-analyzer
 
-Most of the necessary changes aren't rust-analyzer specific and can be
-upstreamed regardless of rust LSP server.
+The only actually interesting non-upstreamed change, is [this commit](https://github.com/bstaletic/ycmd/commit/e6453c7fb0a1190b5d3a2b16549cbeb0a8af7737).
 
 # Known Issues
 
