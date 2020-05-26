@@ -42,16 +42,16 @@ Assuming you installed this repo in `/path/to/this/directory`:
 ```viml
 let s:lsp = '/path/to/this/directory'
 let g:ycm_language_server = [
-  \   { 
+  \   {
   \     'name': 'angular',
-  \     'cmdline': [ 'node' ,                                                 
-  \     expand( s:lsp . '/angular/node_modules/@angular/language-server' ),   
-  \     '--ngProbeLocations',                                                 
-  \     expand( s:lsp . '/angular/node_modules/' ),                           
-  \     '--tsProbeLocations',                                                 
-  \     expand( s:lsp . '/angular/node_modules/' ),                           
-  \     '--stdio' ],                                                          
-  \     'filetypes': [ 'ts','html' ],                                             
+  \     'cmdline': [ 'node' ,
+  \        expand( s:lsp . '/angular/node_modules/@angular/language-server' ),
+  \        '--ngProbeLocations',
+  \        expand( s:lsp . '/angular/node_modules/' ),
+  \        '--tsProbeLocations',
+  \        expand( s:lsp . '/angular/node_modules/' ),
+  \        '--stdio' ],
+  \     'filetypes': [ 'ts','html' ],
   \   }
   \   {
   \     'name': 'bash',
