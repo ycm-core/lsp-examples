@@ -1,0 +1,8 @@
+{
+  "description": "ycmd yaml-language-server runtime area",
+  "dependencies": {
+    "@angular/language-server": "*",
+    "@angular/language-service": "*",
+    "typescript": "*"
+  }
+}
