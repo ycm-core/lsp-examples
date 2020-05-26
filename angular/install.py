@@ -45,7 +45,7 @@ def FindExecutableOrDie( executable, message ):
 
 
 def Main():
-  npm = FindExecutableOrDie( 'npm', 'npm is required to set up Tern.' )
+  npm = FindExecutableOrDie( 'npm', 'npm is required to set up Angular and TSServer.' )
   subprocess.check_call( [ npm, 'install', '--production' ] )
 
 
