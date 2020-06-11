@@ -15,6 +15,7 @@ Working:
 * D
 * Dart
 * Dockerfile
+* Groovy
 * Kotlin
 * Ruby
 * Vue
@@ -62,6 +63,11 @@ let g:ycm_language_server = [
   \     'name': 'dart',
   \     'cmdline': [ 'dart', expand( s:lsp . '/dart/analysis_server.dart.snapshot' ), '--lsp' ],
   \     'filetypes': [ 'dart' ],
+  \   },
+  \   {
+  \     'name': 'groovy',
+  \     'cmdline': [ 'java', '-jar', expand( s:lsp . '/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar' ) ],
+  \     'filetypes': [ 'groovy' ]
   \   },
   \   {
   \     'name': 'yaml',
