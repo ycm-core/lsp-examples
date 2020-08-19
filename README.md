@@ -89,55 +89,67 @@ let g:ycm_language_server = [
   \     'cmdline': [ expand( s:lsp . '/ruby/bin/solargraph' ), 'stdio' ],
   \     'filetypes': [ 'ruby' ],
   \   },
-  \   { 'name': 'kotlin',
+  \   {
+  \     'name': 'kotlin',
   \     'filetypes': [ 'kotlin' ], 
   \     'cmdline': [ expand( s:lsp . '/kotlin/server/build/install/server/bin/server' ) ],
   \   },
-  \   { 'name': 'd',
+  \   {
+  \     'name': 'd',
   \     'filetypes': [ 'd' ], 
   \     'cmdline': [ expand( s:lsp . '/d/serve-d' ) ],
   \   },
-  \   { 'name': 'vue',
+  \   {
+  \     'name': 'vue',
   \     'filetypes': [ 'vue' ], 
   \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ) ]
   \   },
-  \   { 'name': 'docker',
+  \   {
+  \     'name': 'docker',
   \     'filetypes': [ 'dockerfile' ],
   \     'cmdline': [ expand( s:lsp . '/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
   \   },
-  \   { 'name': 'vim',
+  \   {
+  \     'name': 'vim',
   \     'filetypes': [ 'vim' ],
   \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
   \   },
-  \   { 'name': 'scala',
+  \   {
+  \     'name': 'scala',
   \     'filetypes': [ 'scala' ],
   \     'cmdline': [ 'metals-vim' ],
   \     'project_root_files': [ 'build.sbt' ]
   \   },
-  \   { 'name': 'purescript',
+  \   {
+  \     'name': 'purescript',
   \     'filetypes': [ 'purescript' ],
   \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
   \   },
-  \   { 'name': 'fortran',
+  \   {
+  \     'name': 'fortran',
   \     'filetypes': [ 'fortran' ],
   \     'cmdline': [ 'fortls' ],
   \   },
-  \   { 'name': 'haskell',
+  \   {
+  \     'name': 'haskell',
   \     'filetypes': [ 'haskell', 'hs', 'lhs' ],
   \     'cmdline': [ 'hie-wrapper', '--lsp' ],
   \     'project_root_files': [ '.stack.yaml', 'cabal.config', 'package.yaml' ]
   \   },
-  \   { 'name': 'julia',
+  \   {
+  \     'name': 'julia',
   \     'filetypes': [ 'julia' ],
   \     'project_root_files': [ 'Project.toml' ],
   \     'cmdline': <See note below>
   \   },
-  \   { 'name': 'lua',
+  \   {
+  \     'name': 'lua',
   \     'filetypes': [ 'lua' ],
   \     'cmdline': [ expand( s:lsp . '/lua/lua-language-server/root/extension/server/bin/macOS/lua-language-server'),
   \                  expand( s:lsp . '/lua/lua-language-server/root/extension/server/main.lua' ) ]
   \   },
-  \   { 'name': 'rust',
+  \   {
+  \     'name': 'rust',
   \     'filetypes': [ 'rust' ],
   \     'cmdline': [ expand( s:lsp .  '/rust/rust-analyzer/target/release/rust-analyzer' ) ],
   \     'project_root_files': [ 'Cargo.toml' ],
