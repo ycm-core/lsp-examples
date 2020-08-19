@@ -53,7 +53,7 @@ let g:ycm_language_server = [
   \        expand( s:lsp . '/angular/node_modules/' ),
   \        '--stdio' ],
   \     'filetypes': [ 'ts','html' ],
-  \   }
+  \   },
   \   {
   \     'name': 'bash',
   \     'cmdline': [ 'node', expand( s:lsp . '/bash/node_modules/.bin/bash-language-server' ), 'start' ],
@@ -102,7 +102,7 @@ let g:ycm_language_server = [
   \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ) ]
   \   },
   \   { 'name': 'docker',
-  \     'filetypes': [ 'dockerfile' ], 
+  \     'filetypes': [ 'dockerfile' ],
   \     'cmdline': [ expand( s:lsp . '/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
   \   },
   \   { 'name': 'vim',
