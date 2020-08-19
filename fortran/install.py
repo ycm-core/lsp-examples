@@ -33,20 +33,27 @@ def FindExecutable( executable ):
   return None
 
 
-def FindExecutableOrDie( executable, message ):
-  path = FindExecutable( executable )
+def FindExecutableOrDie( executables, message ):
+  for executable in executables:
+    path = FindExecutable( executable )
+    if path:
+      break
 
   if not path:
-    sys.exit( "ERROR: Unable to find executable '{0}'. {1}".format(
-      executable,
+    sys.exit( "ERROR: Unable to find any executable from '{0}'. {1}".format(
+      executables,
       message ) )
 
   return path
 
 
 def Main():
-  pip = FindExecutableOrDie( 'pip', 'pip is required to install fortls.' )
-  subprocess.check_call( [ pip, 'install', 'fortran-language-server' ] )
+  pip = FindExecutableOrDie( [ 'pip', 'pip3' ],
+                             'pip is required to install fortls.' )
+  subprocess.check_call( [ pip,
+                           'install',
+                           '--user',
+                           'fortran-language-server' ] )
 
 
 if __name__ == '__main__':

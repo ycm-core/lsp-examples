@@ -116,7 +116,7 @@ let g:ycm_language_server = [
   \   },
   \   { 'name': 'purescript',
   \     'filetypes': [ 'purescript' ],
-  \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
+  \     'cmdline': [ expand( s:lsp . '/purescript/node_modules/.bin/purescript-language-server' ), '--stdio' ]
   \   },
   \   { 'name': 'fortran',
   \     'filetypes': [ 'fortran' ],

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import argparse
@@ -56,12 +56,32 @@ for d in os.listdir( DIR_OF_THIS_SCRIPT ):
   except Exception:
     failed.append( d )
 
+vimrc = ''
 
 if done:
   print( "** SUCCEEDED **: {}".format( ', '.join( done ) ) )
+
+  vimrc = f"""
+     let g:ycm_lsp_dir = '{ DIR_OF_THIS_SCRIPT }'
+     let g:ycm_language_server = []
+  """
+
+  for d in done:
+    snippet =  os.path.join( DIR_OF_THIS_SCRIPT, d, 'snippet.vim' )
+    if os.path.exists( snippet ):
+      with open( snippet, 'r' ) as f:
+        vimrc += f.read()
+
 
 if failed:
   print( "** FAILED **: {}".format( ', '.join( failed ) ) )
 
 if not ( done + failed ):
   parser.print_help()
+
+if vimrc:
+  with open( os.path.join( DIR_OF_THIS_SCRIPT, 'vimrc.generated' ), 'w' ) as f:
+    f.write( vimrc )
+
+  print( "OK, now add the following to your vimrc:\n" )
+  print( f"source { os.path.join( DIR_OF_THIS_SCRIPT, 'vimrc.generated' ) }" )

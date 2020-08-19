@@ -6,3 +6,4 @@ composer.lock
 
 #add for ignoring node_modules dir
 node_modules/
+vimrc.generated
