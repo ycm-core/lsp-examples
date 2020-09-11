@@ -37,130 +37,21 @@ See also:
 
 Assuming you installed this repo in `/path/to/this/directory`:
 
-* For each of the servers you want, run the `install` script in that directory.
-* Add the following to your `vimrc` (remove any that you didn't install):
+* Decide which languages you want. Each language is a directory in this repo.
+* Run `python3 ./install.py --enable-LANG1 --enable-LANG2 ...`.
+  Replace LANG1/LANG2 etc. with the language dirs. e.g. `./install.py
+  --enable-dart --enable-bash`. You can also use `--all` and `--disable-LANG`.
+* Add the line to your vimrc that it tells you to, this will be similar to:
 
 ```viml
-let s:lsp = '/path/to/this/directory'
-let g:ycm_language_server = [
-  \   {
-  \     'name': 'angular',
-  \     'cmdline': [ 'node' ,
-  \        expand( s:lsp . '/angular/node_modules/@angular/language-server' ),
-  \        '--ngProbeLocations',
-  \        expand( s:lsp . '/angular/node_modules/' ),
-  \        '--tsProbeLocations',
-  \        expand( s:lsp . '/angular/node_modules/' ),
-  \        '--stdio' ],
-  \     'filetypes': [ 'ts','html' ],
-  \   },
-  \   {
-  \     'name': 'bash',
-  \     'cmdline': [ 'node', expand( s:lsp . '/bash/node_modules/.bin/bash-language-server' ), 'start' ],
-  \     'filetypes': [ 'sh', 'bash' ],
-  \   },
-  \   {
-  \     'name': 'dart',
-  \     'cmdline': [ 'dart', expand( s:lsp . '/dart/analysis_server.dart.snapshot' ), '--lsp' ],
-  \     'filetypes': [ 'dart' ],
-  \   },
-  \   {
-  \     'name': 'groovy',
-  \     'cmdline': [ 'java', '-jar', expand( s:lsp . '/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar' ) ],
-  \     'filetypes': [ 'groovy' ]
-  \   },
-  \   {
-  \     'name': 'yaml',
-  \     'cmdline': [ 'node', expand( s:lsp . '/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
-  \     'filetypes': [ 'yaml' ],
-  \   },
-  \   {
-  \     'name': 'php',
-  \     'cmdline': [ 'php', expand( s:lsp . '/php/vendor/bin/php-language-server.php' ) ],
-  \     'filetypes': [ 'php' ],
-  \   },
-  \   {
-  \     'name': 'json',
-  \     'cmdline': [ 'node', expand( s:lsp . '/json/node_modules/.bin/vscode-json-languageserver' ), '--stdio' ],
-  \     'filetypes': [ 'json' ],
-  \   },
-  \   {
-  \     'name': 'ruby',
-  \     'cmdline': [ expand( s:lsp . '/ruby/bin/solargraph' ), 'stdio' ],
-  \     'filetypes': [ 'ruby' ],
-  \   },
-  \   {
-  \     'name': 'kotlin',
-  \     'filetypes': [ 'kotlin' ], 
-  \     'cmdline': [ expand( s:lsp . '/kotlin/server/build/install/server/bin/server' ) ],
-  \   },
-  \   {
-  \     'name': 'd',
-  \     'filetypes': [ 'd' ], 
-  \     'cmdline': [ expand( s:lsp . '/d/serve-d' ) ],
-  \   },
-  \   {
-  \     'name': 'vue',
-  \     'filetypes': [ 'vue' ], 
-  \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ) ]
-  \   },
-  \   {
-  \     'name': 'docker',
-  \     'filetypes': [ 'dockerfile' ],
-  \     'cmdline': [ expand( s:lsp . '/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
-  \   },
-  \   {
-  \     'name': 'vim',
-  \     'filetypes': [ 'vim' ],
-  \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
-  \   },
-  \   {
-  \     'name': 'scala',
-  \     'filetypes': [ 'scala' ],
-  \     'cmdline': [ 'metals-vim' ],
-  \     'project_root_files': [ 'build.sbt' ]
-  \   },
-  \   {
-  \     'name': 'purescript',
-  \     'filetypes': [ 'purescript' ],
-  \     'cmdline': [ expand( s:lsp . '/viml/node_modules/.bin/purescript-language-server' ), '--stdio' ]
-  \   },
-  \   {
-  \     'name': 'fortran',
-  \     'filetypes': [ 'fortran' ],
-  \     'cmdline': [ 'fortls' ],
-  \   },
-  \   {
-  \     'name': 'haskell',
-  \     'filetypes': [ 'haskell', 'hs', 'lhs' ],
-  \     'cmdline': [ 'hie-wrapper', '--lsp' ],
-  \     'project_root_files': [ '.stack.yaml', 'cabal.config', 'package.yaml' ]
-  \   },
-  \   {
-  \     'name': 'julia',
-  \     'filetypes': [ 'julia' ],
-  \     'project_root_files': [ 'Project.toml' ],
-  \     'cmdline': <See note below>
-  \   },
-  \   {
-  \     'name': 'lua',
-  \     'filetypes': [ 'lua' ],
-  \     'cmdline': [ expand( s:lsp . '/lua/lua-language-server/root/extension/server/bin/macOS/lua-language-server'),
-  \                  expand( s:lsp . '/lua/lua-language-server/root/extension/server/main.lua' ) ]
-  \   },
-  \   {
-  \     'name': 'rust',
-  \     'filetypes': [ 'rust' ],
-  \     'cmdline': [ expand( s:lsp .  '/rust/rust-analyzer/target/release/rust-analyzer' ) ],
-  \     'project_root_files': [ 'Cargo.toml' ],
-  \   },
-  \ ]
+source /path/to/this/directory/vimrc.generated
 ```
 
-* Adjust the directory as appropriate
+* Optionally: edit `vimrc.generated` to customise `g:ycm_language_server`
 
-* **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of project folder.
-So please make sure you put your `.ycm_extra_conf.py` at right place (root of current project)
+* **NOTE**: YCM will regard the path of `.ycm_extra_conf.py` as root path of
+  project folder.  So please make sure you put your `.ycm_extra_conf.py` at
+  right place (root of current project)
 
 # Configuration
 
@@ -172,6 +63,9 @@ following keys:
 * 'filetypes' (list): List of Vim filetypes to use this language server for
 * 'cmdline' (list): List of words forming a command line to execute. Note:
   *must* be a list, even if it has only one element (such as `[ 'executable' ]`.
+  If not supplied, no server is started and a port must be supplied.
+* 'port' (number): A TCP port on localhost to connect to if stdio is not
+  possible.
 * 'project_root_files' (list, optional): List of filename to search for when
   trying to determine the 'root' of the project. THis is useful for languages or
   language servers which don't automatically detect the 'workspace' root.
@@ -180,15 +74,17 @@ For full documentation, please see the YouCompleteMe docs.
 
 # Purescript
 
-Ycmd currently doesn't support `showMessageRequest`, so users need to manually build their projects
-on the command line before starting the server. To do this execute `pulp build` in the project root.
+Ycmd currently doesn't support `showMessageRequest`, so users need to manually
+build their projects on the command line before starting the server. To do this
+execute `pulp build` in the project root.
 
 # Scala
 
-Ycmd currently doesn't support `showMessageRequest`, so users need to "import build" manually.
-Unlike purescript, for scala, this can be done in the editor by executing
-`:YcmCompleter ExecuteCommand build-import`. For this operation to succeed `sbt` and `bloop`
-need to be in the `$PATH`. `metals` also requires java 8.
+Ycmd currently doesn't support `showMessageRequest`, so users need to "import
+build" manually.  Unlike purescript, for scala, this can be done in the editor
+by executing `:YcmCompleter ExecuteCommand build-import`. For this operation to
+succeed `sbt` and `bloop` need to be in the `$PATH`. `metals` also requires java
+8.
 
 For completions to work make sure the version of `metals` has [this bug fix][metals-pr].
 
