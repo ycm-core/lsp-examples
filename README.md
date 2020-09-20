@@ -15,6 +15,7 @@ Working:
 * D
 * Dart
 * Dockerfile
+* Godot (gdscript)
 * Groovy
 * Kotlin
 * Ruby
@@ -142,6 +143,16 @@ and the full list of `serve-d`'s configuration options can be found
 [here][d-conf].
 
 Note that the server executable on Windows is called `serve-d.exe`.
+
+# Godot
+
+Godot must be running and you must go to `Project -> Project Settings -> Global`
+and set `Language Server` to `On`.
+
+If Godot is closed or restarted, you might need to force YCM to reconnect (this
+isn't automatic). Use `:YcmCompleter RestartServer` to reconnect.
+
+You can check the status of the connection with `:YcmDebugInfo`.
 
 # Kotlin
 
