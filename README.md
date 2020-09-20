@@ -6,6 +6,27 @@ with YouCompleteMe (strictly ycmd).
 This repo comes with no warranty, and these engines are not officially supported
 by YCM, though they should work for the most part.
 
+<!--ts-->
+ * [Overview](#overview)
+ * [Languages Tested](#languages-tested)
+ * [Quick start](#quick-start)
+ * [Configuration](#configuration)
+ * [Purescript](#purescript)
+ * [Scala](#scala)
+ * [Haskell](#haskell)
+ * [Fortran](#fortran)
+ * [Ruby](#ruby)
+ * [D](#d)
+ * [Godot](#godot)
+ * [Kotlin](#kotlin)
+ * [Julia](#julia)
+ * [Lua](#lua)
+ * [Known Issues](#known-issues)
+
+<!-- Added by: ben, at: Sun 20 Sep 2020 13:24:56 BST -->
+
+<!--te-->
+
 # Languages Tested
 
 Working:
