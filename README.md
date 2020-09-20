@@ -21,7 +21,6 @@ Working:
 * Ruby
 * Vue
 * Vim (vimscript)
-* Rust (with rust-analyzer)
 
 Broken or partially working:
 
@@ -229,24 +228,6 @@ cd ../../
 ```
 
 This will put the binaries in `bin/<your os>`.
-
-# Rust (rust-analyzer)
-
-YCM uses `rls` by default. In order to use `rust-analyzer` you must _not_ have
-built YCM with `--rust-completer`. If you previously did, then you need to
-remove the directory
-`</path/to/>/YouCompleteMe/third_party/ycmd/third_party/rls`.
-
-Building `rust-analyzer` requires `rustup` and the `rust` source code (see the
-`rust-analyzer` docs for details, but in short:
-
-* Install `rustup`
-* `rustup update stable`
-* `rustup default stable`
-* `rustup component add rust-src`
-* `rustup component add rustfmt`
-
-Then you can enable rust with `./install.py --enable-rust`.
 
 # Known Issues
 
