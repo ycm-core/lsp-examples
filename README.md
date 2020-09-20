@@ -174,6 +174,10 @@ isn't automatic). Use `:YcmCompleter RestartServer` to reconnect.
 
 You can check the status of the connection with `:YcmDebugInfo`.
 
+Recommend [vim-godot](https://github.com/habamax/vim-godot) for syntax, etc.
+(don't believe the hype about using _other_ completion systems though, of
+course).
+
 # Kotlin
 
 For whatever reason, the server expects you to have maven in your `PATH` and,
