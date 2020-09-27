@@ -111,18 +111,10 @@ For completions to work make sure the version of `metals` has [this bug fix][met
 
 # Haskell
 
-Currently haskell-ide-engine always completes snippets, which trips up ycmd.
-The [pull request][hie-pr] that fixed this bug has already been merged, but isn't
-available in version 0.13.0.0. Until the next version of HIE compile its git master.
+haskell-ide-engine [is not actively being developed anymore][hie-not-developing], in
+favour of [haskell-language-server][haskell-language-server] ([installation
+instructions][hls-install]).
 
-The HIE install instructions can be found [here][hie-install].
-
-HIE also requires a `.ycm_extra_config.py` with the following content:
-
-```python
-def Settings(**kwargs):
-  return { 'ls': { "languageServerHaskell": {} } }
-```
 
 # Fortran
 
@@ -291,3 +283,6 @@ following makes json work with that fork:
 [metals-pr]: https://github.com/scalameta/metals/issues/1057
 [lua-language-server]: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
 [puremourning-fork]: https://github.com/puremourning/YouCompleteMe
+[hie-not-developing]: https://stackoverflow.com/questions/64087188/what-is-the-current-situation-for-using-vim-as-ide-for-haskell-on-archlinux/
+[haskell-language-server]: https://github.com/haskell/haskell-language-server
+[hls-install]: https://github.com/haskell/haskell-language-server#installation
