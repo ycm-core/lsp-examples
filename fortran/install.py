@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import subprocess, os, sys, platform
 
@@ -53,6 +53,7 @@ def Main():
   subprocess.check_call( [ pip,
                            'install',
                            '--user',
+                           '--upgrade',
                            'fortran-language-server' ] )
 
 

@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 
 if sys.version_info < ( 3, 6, 4 ):
-  sys.exit( "You need to run this with python 3" )
+  print( "Your python: " + str( sys.version_info ) )
+  sys.exit( "You need to run this with python 3.6.4 or later" )
 
 import os, urllib.request, platform, zipfile, tarfile
 
