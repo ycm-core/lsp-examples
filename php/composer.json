@@ -1,6 +1,0 @@
-{
-    "require": {
-        "jetbrains/phpstorm-stubs": "dev-master",
-        "felixfbecker/language-server": "^5.4"
-    }
-}

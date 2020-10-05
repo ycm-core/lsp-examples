@@ -48,12 +48,12 @@ def Main():
   composer = FindExecutableOrDie(
     'composer',
     'composer is required to set up Tern.' )
-  subprocess.check_call( [ composer, 'install' ] )
-  subprocess.check_call( [
-    composer,
-    '--working-dir=vendor/felixfbecker/language-server',
-    'parse-stubs' ] )
-
+  subprocess.check_call( [ composer,
+                           'create-project',
+                           'serenata/serenata',
+                           'serenata',
+                           '--prefer-dist',
+                           '--no-dev' ] )
 
 if __name__ == '__main__':
   Main()

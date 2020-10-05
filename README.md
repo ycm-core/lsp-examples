@@ -39,14 +39,14 @@ Working:
 * Godot (gdscript)
 * Groovy
 * Kotlin
+* PHP
 * Ruby
-* Vue
 * Vim (vimscript)
+* Vue
 
 Broken or partially working:
 
 * JSON
-* PHP
 * YAML
 * Lua
 
@@ -246,6 +246,33 @@ cd ../../
 
 This will put the binaries in `bin/<your os>`.
 
+# PHP
+
+Uses [Serenata](https://serenata.github.io).
+
+Requires some configuration to work. Here's the minimal `.ycm_extra_conf.py`:
+
+```python
+import os
+ROOT = os.path.dirname( os.path.abspath( __file__ ) )
+
+def Settings( **kwargs ):
+  return {
+    'ls': {
+      'configuration': {
+        "uris": [
+          f"file://{ ROOT }"
+        ],
+        "indexDatabaseUri": f"file://{ ROOT }/.serenata/index.sqlite",
+        "phpVersion": 7.2,
+        "fileExtensions": [
+          "php"
+        ]
+      }
+    }
+  }
+```
+
 # Known Issues
 
 - `yaml` completer completions don't work because the server [bugs][yaml-bug]
@@ -254,7 +281,6 @@ This will put the binaries in `bin/<your os>`.
 - `json` completer completions don't work because the server [bugs][json-bug]
   always returns snippets, even though ycmd claims not to support them.
   Validation works though.
-- `php` completer generally never works. It just seems broken.
 - `lua` - yet another completer that returns snippets even if client doesn't
   support them.
 
