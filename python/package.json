@@ -1,0 +1,6 @@
+{
+  "description": "pyright",
+  "dependencies": {
+    "pyright": "*"
+  }
+}
