@@ -4,9 +4,9 @@ if has('win32')
 end
 
 let g:ycm_language_server += [
-\ {
-\  'name': 'cmake',
-\  'cmdline': [ expand( s:lsp . '/cmake/venv/' . s:pip_os_dir . '/cmake-language-server' )],
-\  'filetypes': [ 'cmake' ],
-\ },
-\ ]
+  \   {
+  \     'name': 'cmake',
+  \     'cmdline': [ expand( s:lsp . '/cmake/venv/' . s:pip_os_dir . '/cmake-language-server' )],
+  \     'filetypes': [ 'cmake' ],
+  \    },
+  \ ]
