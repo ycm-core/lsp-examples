@@ -33,6 +33,7 @@ Working:
 
 * Angular
 * Bash
+* Cmake
 * D
 * Dart
 * Dockerfile
