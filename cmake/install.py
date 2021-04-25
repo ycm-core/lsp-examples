@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-import subprocess, platform, sys, os
+import subprocess
+import platform
+import sys
+import os
 
 PY_CMD = sys.executable
 DIR_OF_THIS_SCRIPT = os.path.dirname( os.path.abspath( __name__ ) )
