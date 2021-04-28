@@ -14,11 +14,7 @@ def OnWindows():
 def CreateVenvDir():
   print( "Creating venv" )
   cmd = [ PY_CMD, "-m", "venv", "venv" ]
-  try:
-    subprocess.check_call( cmd )
-    return True
-  except:
-    return False
+  subprocess.check_call( cmd )
 
 
 def InstallCMakeLanguageServer():
@@ -28,19 +24,12 @@ def InstallCMakeLanguageServer():
 
   pip_cmd = os.path.join( DIR_OF_THIS_SCRIPT, "venv", bin_dir, "pip" )
   cmd = [ pip_cmd, "install", "cmake-language-server" ]
-  try:
-    subprocess.check_call( cmd )
-    return True
-  except:
-    return False
+  subprocess.check_call( cmd )
 
 
 def Main():
-  if not CreateVenvDir():
-    sys.exit( "Error, couldn't create the venv directory to be used" )
-
-  if not InstallCMakeLanguageServer():
-    sys.exit( "Error in install process of cmake-language-server" )
+  CreateVenvDir()
+  InstallCMakeLanguageServer()
 
 
 if __name__ == "__main__":
