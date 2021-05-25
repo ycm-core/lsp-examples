@@ -3,7 +3,7 @@
 import subprocess, os, platform
 
 def OnWindows():
-  return platform.system == 'Windows'
+  return platform.system() == 'Windows'
 
 
 def Main():
@@ -15,7 +15,7 @@ def Main():
   subprocess.check_call( [ 'git', 'pull' ] )
 
   if OnWindows():
-    subprocess.check_call( [ './gradlew.bat',
+    subprocess.check_call( [ 'gradlew.bat',
                              '--no-daemon',
                              'build' ] )
   else:
