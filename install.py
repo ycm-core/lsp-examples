@@ -12,7 +12,7 @@ DIR_OF_THIS_SCRIPT = os.path.dirname( os.path.abspath( __name__ ) )
 parser = argparse.ArgumentParser()
 
 def OnWindows():
-  return platform.system == 'Windows'
+  return platform.system() == 'Windows'
 
 @contextlib.contextmanager
 def TemporaryWorkingDirectory( d ):
