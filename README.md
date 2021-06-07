@@ -34,6 +34,7 @@ Working:
 * Angular
 * Bash
 * Cmake
+* Crystal
 * D
 * Dart
 * Dockerfile
@@ -273,6 +274,30 @@ def Settings( **kwargs ):
     }
   }
 ```
+
+# Crystal
+
+Uses [Crystalline](https://github.com/elbywan/crystalline) as an LSP server and
+[vim-crystal](https://github.com/vim-crystal/vim-crystal.git) to determine file
+type.
+
+Keep in mind, that Crystalline version **must** match crystal version (see
+details on crystalline page).
+
+The configuration is pretty straightforward. Add this to your .vimrc:
+```viml
+let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'crystal',
+  \     'cmdline': [ 'crystalline'],
+  \     'project_root_files' : [ 'shard.yml' ],
+  \     'filetypes': [ 'crystal' ]
+  \   }
+  \ ]
+```
+Place crystalline in the path (i.e. /usr/local/bin) or use absolute path
+in the example above..
 
 # Known Issues
 
