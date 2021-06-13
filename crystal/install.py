@@ -83,9 +83,10 @@ with gzip.open("/tmp/crystalline.gz", "rb") as z:
 subprocess.check_call( ("chmod", "+x", "/tmp/crystalline") )
 
 try:
-    shutil.move("/tmp/crystalline", "/usr/local/bin/crystalline")
-except PermissionError:
-    print("You don't have permissions to write to /usr/local/bin")
+    try:
+        os.mkdir("bin")
+    except FileExistsError:
+        pass
+    shutil.move("/tmp/crystalline", "bin/crystalline")
 except OSError:
-    # PermissionError cannot be caught :(
-    print("Error writing /usr/local/bin/crystalline. Possibly, you don't have permissions to write to /usr/local/bin")
+    print("Error writing bin/crystalline. Possibly, you don't have permissions")
