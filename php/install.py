@@ -47,11 +47,11 @@ def FindExecutableOrDie( executable, message ):
 def Main():
   composer = FindExecutableOrDie(
     'composer',
-    'composer is required to set up Tern.' )
+    'composer is required to set up phpactor.' )
   subprocess.check_call( [ composer,
                            'create-project',
-                           'serenata/serenata',
-                           'serenata',
+                           'phpactor/phpactor',
+                           'phpactor',
                            '--prefer-dist',
                            '--no-dev' ] )
 
