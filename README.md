@@ -250,30 +250,7 @@ This will put the binaries in `bin/<your os>`.
 
 # PHP
 
-Uses [Serenata](https://serenata.github.io).
-
-Requires some configuration to work. Here's the minimal `.ycm_extra_conf.py`:
-
-```python
-import os
-ROOT = os.path.dirname( os.path.abspath( __file__ ) )
-
-def Settings( **kwargs ):
-  return {
-    'ls': {
-      'configuration': {
-        "uris": [
-          f"file://{ ROOT }"
-        ],
-        "indexDatabaseUri": f"file://{ ROOT }/.serenata/index.sqlite",
-        "phpVersion": 7.2,
-        "fileExtensions": [
-          "php"
-        ]
-      }
-    }
-  }
-```
+Uses [phpactor](https://phpactor.readthedocs.io/en/master/index.html).
 
 # Crystal
 
