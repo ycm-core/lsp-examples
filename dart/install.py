@@ -34,8 +34,8 @@ def FindExecutable( executable ):
       return executable_name
   return None
 
-if not FindExecutable( 'dart' ) or not FindExecutable( 'dartfmt' ):
-  raise UserWarning( '`dart` and `dartfmt` are needed in $PATH for proper operation' )
+if not FindExecutable( 'dart' ):
+  raise UserWarning( '`dart` is needed in $PATH for proper operation' )
 
 ARCHIVE_URL = 'https://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-{}-{}-release.zip'
 IS_64BIT = sys.maxsize > 2**32
