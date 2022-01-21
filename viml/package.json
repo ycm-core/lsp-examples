@@ -1,6 +1,6 @@
 {
   "description": "ycmd vim-language-server runtime area",
   "dependencies": {
-    "vim-language-server": "^2.0.0"
+    "vim-language-server": "^2.2.4"
   }
 }
