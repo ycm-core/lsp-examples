@@ -161,7 +161,8 @@ Note that the server executable on Windows is called `serve-d.exe`.
 # Godot
 
 Godot must be running and you must go to `Project -> Project Settings -> Global`
-and set `Language Server` to `On`.
+and set `Language Server` to `On`. At least since Godot 3.4, `Language Server`
+options are under `Editor Settings` and `On` by default.
 
 If Godot is closed or restarted, you might need to force YCM to reconnect (this
 isn't automatic). Use `:YcmCompleter RestartServer` to reconnect.
