@@ -54,7 +54,7 @@ def Main():
                            'install',
                            '--user',
                            '--upgrade',
-                           'fortran-language-server' ] )
+                           'fortls' ] )
 
 
 if __name__ == '__main__':
