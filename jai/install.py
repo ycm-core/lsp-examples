@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import subprocess, os, platform
+import subprocess, os, platform, sys
 
 def OnWindows():
   return platform.system() == 'Windows'
