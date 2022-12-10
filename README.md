@@ -21,6 +21,7 @@ by YCM, though they should work for the most part.
  * [Kotlin](#kotlin)
  * [Julia](#julia)
  * [Lua](#lua)
+ * [Zig](#zig)
  * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Sun 20 Sep 2020 13:24:56 BST -->
@@ -45,6 +46,7 @@ Working:
 * Ruby
 * Vim (vimscript)
 * Vue
+* Zig
 
 Broken or partially working:
 
@@ -248,6 +250,14 @@ cd ../../
 ```
 
 This will put the binaries in `bin/<your os>`.
+
+# Zig
+
+Uses [zls](https://github.com/zigtools/zls)
+
+For this to work sometimes, one needs to run the zls executable to create a user/global config json file
+by running the executable in /zig/zls/zig-out/bin/zls after running the install.py.
+[NOTE] if your workspace directory has a zls.json file, it should would also work.
 
 # PHP
 
