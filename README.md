@@ -7,24 +7,27 @@ This repo comes with no warranty, and these engines are not officially supported
 by YCM, though they should work for the most part.
 
 <!--ts-->
- * [Overview](#overview)
- * [Languages Tested](#languages-tested)
- * [Quick start](#quick-start)
- * [Configuration](#configuration)
- * [Purescript](#purescript)
- * [Scala](#scala)
- * [Haskell](#haskell)
- * [Fortran](#fortran)
- * [Ruby](#ruby)
- * [D](#d)
- * [Godot](#godot)
- * [Kotlin](#kotlin)
- * [Julia](#julia)
- * [Lua](#lua)
- * [Zig](#zig)
- * [Known Issues](#known-issues)
+   * [Overview](#overview)
+   * [Languages Tested](#languages-tested)
+   * [Quick start](#quick-start)
+   * [Configuration](#configuration)
+   * [Purescript](#purescript)
+   * [Scala](#scala)
+   * [Haskell](#haskell)
+   * [Fortran](#fortran)
+   * [Python (e.g. pyright)](#python-eg-pyright)
+   * [Ruby](#ruby)
+   * [D](#d)
+   * [Godot](#godot)
+   * [Kotlin](#kotlin)
+   * [Julia](#julia)
+   * [Lua](#lua)
+   * [Zig](#zig)
+   * [PHP](#php)
+   * [Crystal](#crystal)
+   * [Known Issues](#known-issues)
 
-<!-- Added by: ben, at: Sun 20 Sep 2020 13:24:56 BST -->
+<!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
 
 <!--te-->
 
@@ -43,6 +46,7 @@ Working:
 * Groovy
 * Kotlin
 * PHP
+* Python (pyright)
 * Ruby
 * Vim (vimscript)
 * Vue
@@ -127,6 +131,11 @@ The server causes a spurious error:
 - `fortls` doesn't support `didChangeConfiguration`.
 
 This error can be ignored, as they don't interfere with normal work of ycmd/fortls.
+
+# Python (e.g. pyright)
+
+If configuring a language server for Python, this will completely disable the
+built-in Jedi completer in YCM.
 
 # Ruby
 
