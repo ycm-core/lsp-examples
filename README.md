@@ -137,6 +137,41 @@ This error can be ignored, as they don't interfere with normal work of ycmd/fort
 If configuring a language server for Python, this will completely disable the
 built-in Jedi completer in YCM.
 
+## Pyright
+
+Example extra conf (actually for ycmd itself):
+
+```python
+import sys.path as p
+
+DIR_OF_THIS_SCRIPT = p.abspath( p.dirname( __file__ ) )
+DIR_OF_THIRD_PARTY = p.join( DIR_OF_THIS_SCRIPT, 'third_party' )
+DIR_OF_WATCHDOG_DEPS = p.join( DIR_OF_THIRD_PARTY, 'watchdog_deps' )
+
+def Settings( **kwargs ):
+  if language == 'python':
+    return {
+      'ls': {
+        'python': {
+          'analysis': {
+            'extraPaths': [
+              p.join( DIR_OF_THIS_SCRIPT ),
+              p.join( DIR_OF_THIRD_PARTY, 'bottle' ),
+              p.join( DIR_OF_THIRD_PARTY, 'regex-build' ),
+              p.join( DIR_OF_THIRD_PARTY, 'frozendict' ),
+              p.join( DIR_OF_THIRD_PARTY, 'jedi_deps', 'jedi' ),
+              p.join( DIR_OF_THIRD_PARTY, 'jedi_deps', 'parso' ),
+              p.join( DIR_OF_WATCHDOG_DEPS, 'watchdog', 'build', 'lib3' ),
+              p.join( DIR_OF_WATCHDOG_DEPS, 'pathtools' ),
+              p.join( DIR_OF_THIRD_PARTY, 'waitress' )
+            ],
+            'useLibraryCodeForTypes': True
+          }
+        }
+      }
+    }
+```
+
 # Ruby
 
 You need to be running a version of ruby that the parser understands:
