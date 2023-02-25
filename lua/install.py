@@ -8,14 +8,16 @@ import time
 import ssl
 import zipfile
 import shutil
-import gzip
-import io
 import platform
+import re
+import tarfile
 
-URL = ( 'https://marketplace.visualstudio.com/_apis/public/gallery/'
-        'publishers/sumneko/vsextensions/lua/0.15.7/vspackage' )
-PACKAGE_NAME = 'sumneko.lua-0.15.7.vsix'
-
+VERSION = '3.6.11'
+URL = (
+  'https://github.com/LuaLS/lua-language-server/releases/download/{version}'
+  '/{package_name}'
+)
+PACKAGE_NAME = 'lua-language-server-{version}-{platform}-{arch}.{ext}'
 
 @contextlib.contextmanager
 def CurrentWorkingDir( d ):
@@ -118,15 +120,16 @@ def RemoveIfExists( destination ):
       shutil.rmtree( destination )
 
 
-def ExtractZipTo( file_path, destination ):
+def ExtractZipTo( file_path, fmt, destination ):
   print( "Extracting {} to {}".format( file_path, destination ) )
   RemoveIfExists( destination )
 
-  with gzip.open( file_path, 'rb' ) as f:
-    file_contents = f.read()
-
-  with ModePreservingZipFile( io.BytesIO( file_contents ) ) as f:
-    f.extractall( path = destination )
+  if fmt == 'zip':
+    with ModePreservingZipFile( file_path ) as f:
+      f.extractall( path = destination )
+  elif fmt == 'tar':
+    with tarfile.open( file_path ) as f:
+      f.extractall( path = destination )
 
 
 OUTPUT_DIR = os.path.join( os.path.dirname( os.path.abspath( __file__ ) ) ,
@@ -136,18 +139,38 @@ if os.path.isdir( OUTPUT_DIR ):
 
 os.makedirs( OUTPUT_DIR )
 os.chdir( OUTPUT_DIR )
-file_name = DownloadFileTo( URL, OUTPUT_DIR, PACKAGE_NAME )
-ExtractZipTo( file_name, os.path.join( OUTPUT_DIR, 'root' ) )
 
-OS_BIN = {
-  'Windows': 'Windows/lua-language-server.exe',
-  'Darwin': 'macOS/lua-language-server',
-  'Linux': 'Linux/lua-language-server'
+
+def GetPlatform():
+  if 'YCM_PLATFORM' in os.environ:
+    return os.environ[ 'YCM_PLATFORM' ]
+
+  if platform.system() == 'Darwin':
+    return 'darwin'
+  if platform.system() == 'Windows':
+    return 'win32'
+  return 'linux'
+
+
+def GetArch():
+  if 'YCM_ARCH' in os.environ:
+    return os.environ[ 'YCM_ARCH' ]
+
+  machine = platform.machine()
+  if re.match( '^arm', machine.lower() ):
+    return 'arm64'
+
+  return 'x64'
+
+package = {
+  'platform': GetPlatform(),
+  'arch': GetArch(),
+  'ext': 'zip' if GetPlatform() == 'win32' else 'tar.gz',
+  'version': VERSION,
 }
-
-MakeExecutable( os.path.join( OUTPUT_DIR,
-                              'root',
-                              'extension',
-                              'server',
-                              'bin',
-                              OS_BIN[ platform.system() ] ) )
+package_name = PACKAGE_NAME.format( **package )
+url = URL.format( package_name = package_name, **package )
+file_name = DownloadFileTo( url, OUTPUT_DIR, package_name )
+ExtractZipTo( file_name,
+              'zip' if package['ext'] == 'zip' else 'tar',
+              os.path.join( OUTPUT_DIR, 'root' ) )
