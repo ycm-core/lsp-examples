@@ -1,5 +1,5 @@
 {
-  "description": "ycmd yaml-language-server runtime area",
+  "description": "ycmd css-language-server runtime area",
   "dependencies": {
     "vscode-langservers-extracted": "*"
   }
