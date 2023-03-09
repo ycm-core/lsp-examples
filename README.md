@@ -23,6 +23,7 @@ by YCM, though they should work for the most part.
    * [Julia](#julia)
    * [Lua](#lua)
    * [Zig](#zig)
+   * [Css](#css)
    * [PHP](#php)
    * [Crystal](#crystal)
    * [Known Issues](#known-issues)
@@ -302,6 +303,10 @@ Uses [zls](https://github.com/zigtools/zls)
 For this to work sometimes, one needs to run the zls executable to create a user/global config json file
 by running the executable in /zig/zls/zig-out/bin/zls after running the install.py.
 [NOTE] if your workspace directory has a zls.json file, it should would also work.
+
+# Css
+
+Uses [css](https://github.com/hrsh7th/vscode-langservers-extracted)
 
 # PHP
 
