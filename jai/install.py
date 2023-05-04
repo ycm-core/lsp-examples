@@ -45,21 +45,21 @@ def FindExecutableOrDie( executable, message ):
 
 
 def Main():
-  url = 'https://github.com/puremourning/jai_lsp'
+  url = 'https://github.com/SogoCZE/Jails'
   jai = FindExecutableOrDie(
     'jai',
     "You have to add jai to your path, e.g."
     "ln -s /path/to/jai/bin/jai-linux /usr/local/bin/jai" )
   git = FindExecutableOrDie( 'git', 'Need git to download source' )
 
-  if not os.path.isdir( 'jai_lsp' ):
+  if not os.path.isdir( 'Jails' ):
     subprocess.check_call( [ git, 'clone', '--depth', '1', url ] )
 
-  os.chdir( 'jai_lsp' )
+  os.chdir( 'Jails' )
   subprocess.check_call( [ git, 'pull' ] )
   subprocess.check_call( [ git, 'submodule', 'update', '--init', '--recursive' ] )
 
-  subprocess.check_call( [ jai, 'build.jai' ] )
+  subprocess.check_call( [ jai, 'build.jai', '-import_dir', 'metaprogram_modules/' ] )
 
 
 if __name__ == '__main__':

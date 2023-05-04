@@ -38,6 +38,7 @@ Working:
 
 * Angular
 * Bash
+* CSS
 * Cmake
 * Crystal
 * D
@@ -45,6 +46,7 @@ Working:
 * Dockerfile
 * Godot (gdscript)
 * Groovy
+* Jai
 * Kotlin
 * PHP
 * Python (pyright)
@@ -52,13 +54,12 @@ Working:
 * Vim (vimscript)
 * Vue
 * Zig
-* CSS
 
 Broken or partially working:
 
 * JSON
-* YAML
 * Lua
+* YAML
 
 See also:
 
@@ -336,6 +337,36 @@ let g:ycm_language_server =
 ```
 Place crystalline in the path (i.e. /usr/local/bin) or use absolute path
 in the example above..
+
+# Jai
+
+This is using [Jails](https://github.comSogoCZE/Jails), which is very much
+"work in progress", so many things aren't fully working yet, but it's easy
+enough to set up.
+
+You may need to create a `jails.json` in your project root, along with
+`.ycm_extra_conf.py`:
+
+```python
+def Settings( **kwargs ):
+  return {
+    'ls': {}
+  }
+
+```
+
+Example `jails.json`:
+
+```json
+{
+    "workspaces": [
+        {
+            "entry": "/foo/main.jai",
+            "local_modules": "/modules"
+        }
+    ]
+}
+```
 
 # Known Issues
 
