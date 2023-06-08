@@ -344,16 +344,8 @@ This is using [Jails](https://github.comSogoCZE/Jails), which is very much
 "work in progress", so many things aren't fully working yet, but it's easy
 enough to set up.
 
-You may need to create a `jails.json` in your project root, along with
-`.ycm_extra_conf.py`:
-
-```python
-def Settings( **kwargs ):
-  return {
-    'ls': {}
-  }
-
-```
+You may need to create a `jails.json` in your project root to tell Jails where
+to find modules.
 
 Example `jails.json`:
 
