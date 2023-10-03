@@ -44,14 +44,21 @@ def FindExecutableOrDie( executable, message ):
 
   return path
 
+def InstallRacoPackage( racoExecutable, packageName ):
+  print("Installing " + packageName + " from raco")
+  try: 
+    subprocess.check_call( [ racoExecutable, 'pkg', 'install', packageName] )
+  except subprocess.CalledProcessError as calledProcessError:
+    # package is already installed if return code is 1
+    if calledProcessError.returncode != 1:
+      raise
 
 def Main():
-  git = FindExecutableOrDie('raco', 'raco is required to setup Racket language server')
+  raco = FindExecutableOrDie('raco', 'raco is required to setup Racket language server')
 
-  print("Installing racket-langserver and fmt from raco")
-  os.system("raco pkg install racket-langserver")
+  InstallRacoPackage(raco, 'racket-langserver')
   # Used by Vim when it recognizes racket filetype 
-  os.system("raco pkg install fmt")
+  InstallRacoPackage(raco, 'fmt')
 
 
 if __name__ == '__main__':
