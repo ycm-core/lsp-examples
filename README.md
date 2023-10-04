@@ -50,6 +50,7 @@ Working:
 * Kotlin
 * PHP
 * Python (pyright)
+* Racket
 * Ruby
 * Vim (vimscript)
 * Vue
@@ -174,6 +175,12 @@ def Settings( **kwargs ):
       }
     }
 ```
+
+# Racket
+
+You need to have racket installed so you can use `raco` to install
+the required packages for the language server.
+You can install racket through the [racket website](https://download.racket-lang.org/) or your package manager.
 
 # Ruby
 
