@@ -46,12 +46,7 @@ def FindExecutableOrDie( executable, message ):
 
 def InstallRacoPackage( racoExecutable, packageName ):
   print("Installing " + packageName + " from raco")
-  try: 
-    subprocess.check_call( [ racoExecutable, 'pkg', 'install', packageName] )
-  except subprocess.CalledProcessError as calledProcessError:
-    # package is already installed if return code is 1
-    if calledProcessError.returncode != 1:
-      raise
+  subprocess.check_call( [ racoExecutable, 'pkg', 'install', '--skip-installed', packageName] )
 
 def Main():
   raco = FindExecutableOrDie('raco', 'raco is required to setup Racket language server')
