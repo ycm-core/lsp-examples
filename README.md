@@ -52,6 +52,7 @@ Working:
 * Python (pyright)
 * Racket
 * Ruby
+* Vala
 * Vim (vimscript)
 * Vue
 * Zig
@@ -366,6 +367,17 @@ Example `jails.json`:
     ]
 }
 ```
+
+# Vala
+
+Installing [vala-language-server](https://github.com/vala-lang/vala-language-server) from
+source automatically takes a long time
+and would be difficult to get right generically.
+
+Please install `vala-language-server` through your system package manager
+before enabling vala support through YCM.
+
+For formatting support you will need `uncrustify` as well.
 
 # Known Issues
 
