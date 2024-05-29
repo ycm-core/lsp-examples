@@ -47,6 +47,7 @@ Working:
 * Godot (gdscript)
 * Groovy
 * Jai
+* Jsonnet (see jsonnet/README.md)
 * Kotlin
 * PHP
 * Python (pyright)
