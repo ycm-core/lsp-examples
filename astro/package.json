@@ -1,0 +1,6 @@
+{
+  "description": "ycmd astro-ls runtime area",
+  "dependencies": {
+    "@astrojs/language-server": "2.14.1"
+  }
+}

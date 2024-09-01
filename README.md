@@ -26,6 +26,7 @@ by YCM, though they should work for the most part.
    * [CSS](#css)
    * [PHP](#php)
    * [Crystal](#crystal)
+   * [Astro](#astro)
    * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
@@ -346,6 +347,37 @@ let g:ycm_language_server =
 ```
 Place crystalline in the path (i.e. /usr/local/bin) or use absolute path
 in the example above..
+
+# Astro
+
+In addition to defining `g:ycm_language_server` block as shown in
+[`astro/snippet.vim`](astro/snippet.vim) this LSP requires `.ycm_extra_conf.py`
+to pass Language Server `initializationOptions` pointing to a directory
+containing either `typescript.js` or `tsserverlibrary.js` file, such as
+`node_modules/typescript/lib`, via `typescript.tsdk` key/value address, eg.
+
+```python
+import os
+
+def Settings( **kwargs ):
+    if kwargs[ 'language' ] == 'astro':
+        configs = {
+            'ls': {
+                'typescript': {
+                    'tsdk':  "{}/node_modules/typescript/lib".format(os.path.abspath(os.path.curdir)),
+                },
+            },
+        }
+
+        return configs
+```
+
+...  Authors of Astro Language Server recommend installing `prettier` plugins
+too, so adding the following to your `npm init` rituals may be a good idea;
+
+```bash
+npm install --save-dev typescript prettier prettier-plugin-astro
+```
 
 # Jai
 
