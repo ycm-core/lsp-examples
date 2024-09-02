@@ -376,7 +376,22 @@ def Settings( **kwargs ):
 too, so adding the following to your `npm init` rituals may be a good idea;
 
 ```bash
-npm install --save-dev typescript prettier prettier-plugin-astro
+npm install --save-dev typescript prettier prettier-plugin-astro @astrojs/ts-plugin
+```
+
+Finally, hopefully for now, adding the `@astrojs/ts-plugin` to your project's
+`tsconfig.json` may be necessary to enable all features of Astro LS
+
+```json
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  }
+}
 ```
 
 # Jai
