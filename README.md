@@ -360,11 +360,12 @@ containing either `typescript.js` or `tsserverlibrary.js` file, such as
 import os
 
 def Settings( **kwargs ):
+    current_directory = os.path.abspath(os.path.curdir)
     if kwargs[ 'language' ] == 'astro':
         configs = {
             'ls': {
                 'typescript': {
-                    'tsdk':  "{}/node_modules/typescript/lib".format(os.path.abspath(os.path.curdir)),
+                    'tsdk':  f"{current_directory}/node_modules/typescript/lib"
                 },
             },
         }
