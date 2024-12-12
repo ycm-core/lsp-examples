@@ -57,6 +57,7 @@ Working:
 * Vala
 * Vim (vimscript)
 * Vue
+* WASM (WAT)
 * Zig
 
 Broken or partially working:
