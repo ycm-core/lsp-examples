@@ -418,6 +418,8 @@ sudo pacman -S erlang &&
 ```
 </details>
 
+> :warning: doc-comments, as of 2025-02-11, are only extracted correctly when a project includes `{project_plugins, [rebar3_ex_doc]}.`, within its `rebar.conf` file.  Check [`erlang-ls/erlang_ls` -- Issue `1578`](https://github.com/erlang-ls/erlang_ls/issues/1578) for the full scoop.
+
 # Jai
 
 This is using [Jails](https://github.comSogoCZE/Jails), which is very much
