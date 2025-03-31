@@ -27,6 +27,7 @@ by YCM, though they should work for the most part.
    * [PHP](#php)
    * [Crystal](#crystal)
    * [Astro](#astro)
+   * [Postgres](#postgres)
    * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
@@ -395,6 +396,13 @@ Finally, hopefully for now, adding the `@astrojs/ts-plugin` to your project's
   }
 }
 ```
+
+# Postgres
+
+Within the root of a project running `postgrestools init` is recommend by
+[Configuration](https://pgtools.dev/#configuration) documentation to create a
+`postgrestools.jsonc` file, then editing that file for your database setup
+seems required to make full use of this Language Server's tooling.
 
 # Jai
 
