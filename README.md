@@ -404,6 +404,64 @@ Within the root of a project running `postgrestools init` is recommend by
 `postgrestools.jsonc` file, then editing that file for your database setup
 seems required to make full use of this Language Server's tooling.
 
+<details><summary>Configuration examples and tips</summary>
+**`docker-compose.yaml`**
+
+```yaml
+version: '3.9'
+
+services:
+  ##
+  # https://hub.docker.com/_/postgres/
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+
+    ports:
+      - 127.0.0.1:5432:5432
+
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+```
+
+**`postgrestools.jsonc`**
+
+```json
+{
+  "$schema": "https://pgtools.dev/schemas/0.0.0/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignore": []
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "db": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
+    "connTimeoutSecs": 10
+  }
+}
+```
+
+> :warning: Warnings;
+> - As of 2025-03-31 removing `"allowStatementExecutionsAgainst": ["127.0.0.1/*", "localhost/*"]` from the `"db"` dictionary is necessary.
+> - Changing `POSTGRES_PASSWORD` environment variable within the `docker-compose.yaml` file does **not** update the password within the container.
+</details>
+
 # Jai
 
 This is using [Jails](https://github.comSogoCZE/Jails), which is very much
