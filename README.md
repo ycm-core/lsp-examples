@@ -236,6 +236,24 @@ course).
 
 # Kotlin
 
+## Kotlin - JetBrains
+
+JetBrains Kotlin Language Server Protocol (LSP) implementation based on IntelliJ
+
+https://github.com/Kotlin/kotlin-lsp.
+
+See [jetbrains-kotlin/README.md](jetbrains-kotlin/README.md) for more
+information.
+
+### Limitations
+
+Uses pull-style diagnostics, which YCM doesn't currently support.
+
+## Kotlin - fwcd
+
+NOTE: I have had little success with this, but the JetBrains one seems to work
+well.
+
 For whatever reason, the server expects you to have maven in your `PATH` and,
 just like `serve-d`, `kotlin-language-server` has its own [configuration][kt-conf].
 
