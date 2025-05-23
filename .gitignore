@@ -7,3 +7,6 @@ composer.lock
 #add for ignoring node_modules dir
 node_modules/
 vimrc.generated
+
+## Add to ignore cloned Erlang LS source
+erlang/erlang_ls/
