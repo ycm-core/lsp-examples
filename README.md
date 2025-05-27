@@ -28,6 +28,7 @@ by YCM, though they should work for the most part.
    * [Crystal](#crystal)
    * [Astro](#astro)
    * [Postgres](#postgres)
+   * [Erlang](#erlang)
    * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
@@ -421,6 +422,21 @@ Within the root of a project running `postgrestools init` is recommend by
 [Configuration](https://pgtools.dev/#configuration) documentation to create a
 `postgrestools.jsonc` file, then editing that file for your database setup
 seems required to make full use of this Language Server's tooling.
+
+# Erlang
+
+Be sure to have satisfied [minimum requirements](https://github.com/erlang-ls/erlang_ls?tab=readme-ov-file#minimum-requirements), and checking [configuration](https://erlang-ls.github.io/configuration/) documentation may be prudent.
+
+<details><summary>Minimum Requirements install hints</summary>
+**Arch (BTW™)**
+
+```bash
+sudo pacman -S erlang &&
+  yay -S rebar3
+```
+</details>
+
+> :warning: doc-comments, as of 2025-02-11, are only extracted correctly when a project includes `{project_plugins, [rebar3_ex_doc]}.`, within its `rebar.conf` file.  Check [`erlang-ls/erlang_ls` -- Issue `1578`](https://github.com/erlang-ls/erlang_ls/issues/1578) for the full scoop.
 
 # Jai
 
