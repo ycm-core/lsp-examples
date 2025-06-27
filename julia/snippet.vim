@@ -4,9 +4,8 @@ let s:julia_cmdline = ['julia', '--startup-file=no', '--history-file=no', '-e', 
 \       import StaticLint;
 \       import SymbolServer;
 \       env_path = dirname(Pkg.Types.Context().env.project_file);
-\       debug = false;
 \
-\       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict());
+\       server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
 \       server.runlinter = true;
 \       run(server);
 \   ']
