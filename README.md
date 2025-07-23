@@ -29,6 +29,7 @@ by YCM, though they should work for the most part.
    * [Astro](#astro)
    * [Postgres](#postgres)
    * [Erlang](#erlang)
+   * [Nix](#nix)
    * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
@@ -437,6 +438,32 @@ sudo pacman -S erlang &&
 </details>
 
 > :warning: doc-comments, as of 2025-02-11, are only extracted correctly when a project includes `{project_plugins, [rebar3_ex_doc]}.`, within its `rebar.conf` file.  Check [`erlang-ls/erlang_ls` -- Issue `1578`](https://github.com/erlang-ls/erlang_ls/issues/1578) for the full scoop.
+
+# Nix
+
+Be sure to check [nil](https://github.com/oxalica/nil) repository for configuration details.
+
+Requires `nix` package manager as well as Rust tool chain (`cargo`) to install/build from source.  Best results are likely had via a _real_ [NixOS](https://wiki.nixos.org/wiki/Nix_Installation_Guide) environment, but testing on Arch seems to work too.
+
+<details><summary>Non-NixOS tips</summary>
+**Arch (BTW™)**
+
+```bash
+sudo pacman -S nix &&
+  sudo usermod -a -G nix-users "${USER}" &&
+  sudo systemctl enable --now nix-daemon.service &&
+  tee -a "${HOME}/.config/nix/nix.conf" 1>/dev/null <<'EOF'
+experimental-features = nix-command flakes
+EOF
+
+test "${?}" -eq 0 &&
+  tee -a "${HOME}/.bashrc" 1>/dev/null <<'EOF'
+export NIX_CONF_DIR="${HOME}/.config/nix/"
+EOF
+```
+
+:warning: be sure to **not** forget the `-a` option with `tee`, it stands for append and without it it'll happily overwrite files!
+</details>
 
 # Jai
 

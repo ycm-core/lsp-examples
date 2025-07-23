@@ -10,3 +10,6 @@ vimrc.generated
 
 ## Add to ignore cloned Erlang LS source
 erlang/erlang_ls/
+
+## Add to ignore cloned Nix LS source
+nix/nil/
