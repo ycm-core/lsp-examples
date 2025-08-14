@@ -30,6 +30,7 @@ by YCM, though they should work for the most part.
    * [Postgres](#postgres)
    * [Erlang](#erlang)
    * [Nix](#nix)
+   * [SystemD](#systemd)
    * [Known Issues](#known-issues)
 
 <!-- Added by: ben, at: Tue 21 Feb 2023 09:01:14 GMT -->
@@ -486,6 +487,10 @@ Example `jails.json`:
     ]
 }
 ```
+
+# SystemD
+
+Uses [systemd-lsp](https://github.com/JFryy/systemd-lsp)
 
 # Vala
 
