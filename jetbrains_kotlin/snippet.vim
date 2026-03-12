@@ -2,7 +2,7 @@ let g:ycm_language_server += [
   \   {
   \     'name': 'jetbrains-kotlin',
   \     'cmdline': [
-  \       expand( g:ycm_lsp_dir ) . '/jetbrains-kotlin/kotlin-lsp/kotlin-lsp.sh',
+  \       expand( g:ycm_lsp_dir ) . '/jetbrains_kotlin/kotlin-lsp/kotlin-lsp.sh',
   \       '--stdio',
   \     ],
   \     'filetypes': [ 'kotlin' ],
