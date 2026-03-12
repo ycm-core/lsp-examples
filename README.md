@@ -245,7 +245,7 @@ JetBrains Kotlin Language Server Protocol (LSP) implementation based on IntelliJ
 
 https://github.com/Kotlin/kotlin-lsp.
 
-See [jetbrains-kotlin/README.md](jetbrains-kotlin/README.md) for more
+See [jetbrains_kotlin/README.md](jetbrains_kotlin/README.md) for more
 information.
 
 ### Limitations

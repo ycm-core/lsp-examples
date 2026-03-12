@@ -25,7 +25,7 @@ chmod +x kotlin-lsp.sh
 ```
 
 If you can't have JAVA_HOME set globally in your Vim environment, you can
-manually set up the snippet to use any java 17 or later installation. 
+manually set up the snippet to use any java 17 or later installation.
 
 ```viml
 let g:ycm_language_server += [
@@ -42,3 +42,27 @@ let g:ycm_language_server += [
   \ ]
 
 ```
+
+## Inlay Hints
+
+To enable inlay hints, add a `.ycm_extra_conf.py` to your project root with the
+`config_sections` for `jetbrains.kotlin`. The server currently supports two hint
+categories:
+
+```python
+def Settings( **kwargs ):
+  return {
+    'config_sections': {
+      'jetbrains.kotlin': {
+        'hints': {
+          # Show parameter name hints at call sites
+          'parameters': True,
+          # Show return type hints in call chains
+          'call': { 'chains': True },
+        },
+      },
+    },
+  }
+```
+
+See `test/.ycm_extra_conf.py` for a working example.

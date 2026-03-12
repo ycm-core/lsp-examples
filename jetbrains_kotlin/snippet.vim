@@ -7,6 +7,7 @@ let g:ycm_language_server += [
   \     ],
   \     'filetypes': [ 'kotlin' ],
   \     'project_root_files': [ 'build.gradle', 'build.gradle.kts', 'pom.xml' ],
+  \     'capabilities': { 'workspace': { 'configuration': v:true } },
   \   },
   \ ]
 
