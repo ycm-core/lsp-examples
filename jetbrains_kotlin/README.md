@@ -5,12 +5,10 @@ IDEA's Kotlin plugin.
 
 ## Installation
 
-Requires being run with java 17 or later. The `JAVA_HOME` environment variable
-must be set to ponit to a java 17 or later to run the language server.
-
 1. Download the zip from https://github.com/Kotlin/kotlin-lsp/blob/main/RELEASES.md
-   and unpack it into this directory/kotlin-lsp. Make the `kotlin-lsp.sh` script
-   executable.
+   and unpack it into this directory/kotlin-lsp-<version>
+2. . Make the `kotlin-lsp.sh` script executable.
+3. move the 'kotlin-lsp' symlink to point at that directory
 2. Include the snippet
 
 Example:
@@ -18,10 +16,13 @@ Example:
 ```
 cd lsp-examples/jetbrains_kotlin
 wget <url of latest zip>
-mkdir kotlin-lsp
-cd kotlin-lsp
+mkdir kotlin-lsp-<version>
+cd kotlin-lsp-<version>
 unzip ../<latest zip>
 chmod +x kotlin-lsp.sh
+cd ../
+rm -f kotlin-lsp
+ln -s kotlin-lsp-<version> kotlin-lsp
 ```
 
 If you can't have JAVA_HOME set globally in your Vim environment, you can
