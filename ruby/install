@@ -1,3 +1,12 @@
 #/usr/bin/env bash
 
-bundle install --path=vendor/bundle --binstubs
+bundler_version=$(bundle --version)
+bundler_major=${bundler_version%%.*}
+
+if (( bundler_major >= 4 )); then
+  bundle config set path 'vendor/bundle'
+  bundle install
+  bundle binstubs --all
+else
+  bundle install --path=vendor/bundle --binstubs
+fi
