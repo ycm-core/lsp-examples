@@ -64,7 +64,15 @@ def Main():
     subprocess.check_call( [ git, 'clone', '--recurse-submodules', '--depth=1', url ] )
     os.chdir('zls')
 
-  subprocess.check_call( [ zig, 'build', '-Drelease-safe'])
+  # The flag '-Doptimize=ReleaseSafe' is specified in the zls source code Documentation
+  # https://github.com/zigtools/zls/blob/master/README.md
+  # The other flag '-Dversion-string=<Semantic Version>' was being required by the build automation process
+  # When it was failing to run git for the description and resolution of the ZLS Version and Tags from 
+  # the source code repository
+  # The assigned Version of '0.14.0-dev.390+188a4c04' was obtained from a separately built zls binary 
+  # for x86_64 Linux
+  # A more permanent and prettier solution is required, but this should suffice in the interim
+  subprocess.check_call( [ zig, 'build', '-Doptimize=ReleaseSafe', '-Dversion-string=0.14.0-dev.390+188a4c04'])
 
 
 if __name__ == '__main__':
