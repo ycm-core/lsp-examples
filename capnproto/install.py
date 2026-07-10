@@ -8,6 +8,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 subprocess.check_call([
     'cargo',
     'install',
-    '--git', 'https://github.com/puremourning/capnprotols',
+    'capnprotols',
     '--root', os.path.join(HERE, 'root')
 ])

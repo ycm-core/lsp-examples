@@ -1,7 +1,7 @@
 # Installation
 
 1. Go to: https://github.com/grafana/jsonnet-language-server/releases
-2. Pic the release for your platform
+2. Pick the release for your platform
 3. Put it in the bin/ directory under here, and rename to
    jsonnet-language-server.
 4. Make sure it is executable: `chmod +x bin/jsonnet-language-server`
